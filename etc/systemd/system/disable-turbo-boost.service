@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable Intel Turbo Boost
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'echo "1" > "/sys/devices/system/cpu/intel_pstate/no_turbo"'
+
+[Install]
+WantedBy=multi-user.target

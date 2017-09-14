@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable Broadcom Wifi tunables
+After=powertop.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'echo "on" > "/sys/bus/pci/devices/0000:02:00.0/power/control"'
+
+[Install]
+WantedBy=multi-user.target

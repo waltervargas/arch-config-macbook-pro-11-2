@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable Autosuspend for Logitech USB dongle
+After=powertop.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/bash -c 'echo "on" > "/sys/bus/usb/devices/1-5/power/control"'
+
+[Install]
+WantedBy=multi-user.target
